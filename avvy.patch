@@ -1,0 +1,44 @@
+diff --git a/package.json b/package.json
+index d7e2f6e..2dc31fd 100644
+--- a/package.json
++++ b/package.json
+@@ -4,8 +4,7 @@
+   "main": "./build/main.cjs",
+   "module": "./main.js",
+   "exports": {
+-    "import": "./main.js",
+-    "require": "./build/main.cjs"
++    "./src/poseidon_wasm.js": "./src/poseidon_wasm.js"
+   },
+   "version": "0.1.7",
+   "description": "Javascript library to work with circomlib",
+@@ -42,6 +41,6 @@
+     "blake-hash": "^2.0.0",
+     "blake2b": "^2.1.3",
+     "ethers": "^5.5.1",
+-    "ffjavascript": "^0.2.45"
++    "ffjavascript": "git+https://git@github.com/avvydomains/ffjavascript.git"
+   }
+ }
+diff --git a/src/poseidon_wasm.js b/src/poseidon_wasm.js
+index c7048c0..3d488e1 100644
+--- a/src/poseidon_wasm.js
++++ b/src/poseidon_wasm.js
+@@ -1,7 +1,9 @@
+ 
+ import poseidonConstants from "./poseidon_constants_opt.js";
+ 
+-import { getCurveFromName, Scalar, F1Field } from "ffjavascript";
++import * as Scalar from "ffjavascript/src/scalar.js"
++import F1Field from "ffjavascript/src/f1field.js"
++import { getCurveFromName } from "ffjavascript/src/curves.js"
+ 
+ export async function buildPoseidon() {
+     const bn128 = await getCurveFromName("bn128", true, buildPoseidonWasm);
+@@ -437,4 +439,4 @@ export function buildPoseidonWasm(module) {
+ 
+     buildPoseidon();
+     module.exportFunction("poseidon");
+-}
+\ No newline at end of file
++}

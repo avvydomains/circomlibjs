@@ -1,7 +1,9 @@
 
 import poseidonConstants from "./poseidon_constants_opt.js";
 
-import { getCurveFromName, Scalar, F1Field } from "ffjavascript";
+import * as Scalar from "ffjavascript/src/scalar.js"
+import F1Field from "ffjavascript/src/f1field.js"
+import { getCurveFromName } from "ffjavascript/src/curves.js"
 
 export async function buildPoseidon() {
     const bn128 = await getCurveFromName("bn128", true, buildPoseidonWasm);
