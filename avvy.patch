@@ -42,3 +42,56 @@ index c7048c0..3d488e1 100644
 -}
 \ No newline at end of file
 +}
+diff --git a/package-lock.json b/package-lock.json
+index d6c5373..9a68431 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -12,7 +12,7 @@
+         "blake-hash": "^2.0.0",
+         "blake2b": "^2.1.3",
+         "ethers": "^5.5.1",
+-        "ffjavascript": "git+https://git@github.com/avvydomains/ffjavascript.git"
++        "ffjavascript": "git+https://github.com/avvydomains/ffjavascript.git#avvy-1.0.0"
+       },
+       "devDependencies": {
+         "chai": "^4.3.4",
+@@ -1154,7 +1154,7 @@
+     },
+     "node_modules/ffjavascript": {
+       "version": "0.2.56",
+-      "resolved": "git+https://git@github.com/avvydomains/ffjavascript.git#93391276eef94c893deb128c21b0686f638e9bbb",
++      "resolved": "git+ssh://git@github.com/avvydomains/ffjavascript.git#530529383bb0fa14adf13152e59dadb38ebf3478",
+       "license": "GPL-3.0",
+       "dependencies": {
+         "wasmbuilder": "0.0.16",
+@@ -3160,8 +3160,8 @@
+       }
+     },
+     "ffjavascript": {
+-      "version": "git+https://git@github.com/avvydomains/ffjavascript.git#93391276eef94c893deb128c21b0686f638e9bbb",
+-      "from": "ffjavascript@git+https://git@github.com/avvydomains/ffjavascript.git",
++      "version": "git+ssh://git@github.com/avvydomains/ffjavascript.git#530529383bb0fa14adf13152e59dadb38ebf3478",
++      "from": "ffjavascript@git+https://github.com/avvydomains/ffjavascript.git#avvy-1.0.0",
+       "requires": {
+         "wasmbuilder": "0.0.16",
+         "wasmcurves": "0.2.0",
+diff --git a/package.json b/package.json
+index 2dc31fd..55f9fae 100644
+--- a/package.json
++++ b/package.json
+@@ -4,6 +4,7 @@
+   "main": "./build/main.cjs",
+   "module": "./main.js",
+   "exports": {
++    "./package.json": "./package.json",
+     "./src/poseidon_wasm.js": "./src/poseidon_wasm.js"
+   },
+   "version": "0.1.7",
+@@ -41,6 +42,6 @@
+     "blake-hash": "^2.0.0",
+     "blake2b": "^2.1.3",
+     "ethers": "^5.5.1",
+-    "ffjavascript": "git+https://git@github.com/avvydomains/ffjavascript.git"
++    "ffjavascript": "git+https://github.com/avvydomains/ffjavascript.git#avvy-1.0.0"
+   }
+ }
